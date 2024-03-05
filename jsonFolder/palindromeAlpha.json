@@ -1,6 +1,6 @@
 {
     "name" : "palindrome",
-    "alphabet" : [ ">", ".", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" ],
+    "alphabet" : [ ".", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" ],
     "blank" : ".",
     "states" : [
         "is first",
@@ -64,33 +64,32 @@
     "finals" : [ "HALT" ],
     "transitions" : {
         "is first" : [
-            { "read" : "a", "to_state" : "search last a", "write" : ">", "action" : "RIGHT" },
-            { "read" : "b", "to_state" : "search last b", "write" : ">", "action" : "RIGHT" },
-            { "read" : "c", "to_state" : "search last c", "write" : ">", "action" : "RIGHT" },
-            { "read" : "d", "to_state" : "search last d", "write" : ">", "action" : "RIGHT" },
-            { "read" : "e", "to_state" : "search last e", "write" : ">", "action" : "RIGHT" },
-            { "read" : "f", "to_state" : "search last f", "write" : ">", "action" : "RIGHT" },
-            { "read" : "g", "to_state" : "search last g", "write" : ">", "action" : "RIGHT" },
-            { "read" : "h", "to_state" : "search last h", "write" : ">", "action" : "RIGHT" },
-            { "read" : "i", "to_state" : "search last i", "write" : ">", "action" : "RIGHT" },
-            { "read" : "j", "to_state" : "search last j", "write" : ">", "action" : "RIGHT" },
-            { "read" : "k", "to_state" : "search last k", "write" : ">", "action" : "RIGHT" },
-            { "read" : "l", "to_state" : "search last l", "write" : ">", "action" : "RIGHT" },
-            { "read" : "m", "to_state" : "search last m", "write" : ">", "action" : "RIGHT" },
-            { "read" : "n", "to_state" : "search last n", "write" : ">", "action" : "RIGHT" },
-            { "read" : "o", "to_state" : "search last o", "write" : ">", "action" : "RIGHT" },
-            { "read" : "p", "to_state" : "search last p", "write" : ">", "action" : "RIGHT" },
-            { "read" : "q", "to_state" : "search last q", "write" : ">", "action" : "RIGHT" },
-            { "read" : "r", "to_state" : "search last r", "write" : ">", "action" : "RIGHT" },
-            { "read" : "s", "to_state" : "search last s", "write" : ">", "action" : "RIGHT" },
-            { "read" : "t", "to_state" : "search last t", "write" : ">", "action" : "RIGHT" },
-            { "read" : "u", "to_state" : "search last u", "write" : ">", "action" : "RIGHT" },
-            { "read" : "v", "to_state" : "search last v", "write" : ">", "action" : "RIGHT" },
-            { "read" : "w", "to_state" : "search last w", "write" : ">", "action" : "RIGHT" },
-            { "read" : "x", "to_state" : "search last x", "write" : ">", "action" : "RIGHT" },
-            { "read" : "y", "to_state" : "search last y", "write" : ">", "action" : "RIGHT" },
-            { "read" : "z", "to_state" : "search last z", "write" : ">", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is first", "write" : ">", "action" : "RIGHT" },
+            { "read" : "a", "to_state" : "search last a", "write" : ".", "action" : "RIGHT" },
+            { "read" : "b", "to_state" : "search last b", "write" : ".", "action" : "RIGHT" },
+            { "read" : "c", "to_state" : "search last c", "write" : ".", "action" : "RIGHT" },
+            { "read" : "d", "to_state" : "search last d", "write" : ".", "action" : "RIGHT" },
+            { "read" : "e", "to_state" : "search last e", "write" : ".", "action" : "RIGHT" },
+            { "read" : "f", "to_state" : "search last f", "write" : ".", "action" : "RIGHT" },
+            { "read" : "g", "to_state" : "search last g", "write" : ".", "action" : "RIGHT" },
+            { "read" : "h", "to_state" : "search last h", "write" : ".", "action" : "RIGHT" },
+            { "read" : "i", "to_state" : "search last i", "write" : ".", "action" : "RIGHT" },
+            { "read" : "j", "to_state" : "search last j", "write" : ".", "action" : "RIGHT" },
+            { "read" : "k", "to_state" : "search last k", "write" : ".", "action" : "RIGHT" },
+            { "read" : "l", "to_state" : "search last l", "write" : ".", "action" : "RIGHT" },
+            { "read" : "m", "to_state" : "search last m", "write" : ".", "action" : "RIGHT" },
+            { "read" : "n", "to_state" : "search last n", "write" : ".", "action" : "RIGHT" },
+            { "read" : "o", "to_state" : "search last o", "write" : ".", "action" : "RIGHT" },
+            { "read" : "p", "to_state" : "search last p", "write" : ".", "action" : "RIGHT" },
+            { "read" : "q", "to_state" : "search last q", "write" : ".", "action" : "RIGHT" },
+            { "read" : "r", "to_state" : "search last r", "write" : ".", "action" : "RIGHT" },
+            { "read" : "s", "to_state" : "search last s", "write" : ".", "action" : "RIGHT" },
+            { "read" : "t", "to_state" : "search last t", "write" : ".", "action" : "RIGHT" },
+            { "read" : "u", "to_state" : "search last u", "write" : ".", "action" : "RIGHT" },
+            { "read" : "v", "to_state" : "search last v", "write" : ".", "action" : "RIGHT" },
+            { "read" : "w", "to_state" : "search last w", "write" : ".", "action" : "RIGHT" },
+            { "read" : "x", "to_state" : "search last x", "write" : ".", "action" : "RIGHT" },
+            { "read" : "y", "to_state" : "search last y", "write" : ".", "action" : "RIGHT" },
+            { "read" : "z", "to_state" : "search last z", "write" : ".", "action" : "RIGHT" },
             { "read" : ".", "to_state" : "HALT", "write" : "y", "action" : "RIGHT" }
         ],
         "search last a" : [
@@ -120,7 +119,6 @@
             { "read" : "x", "to_state" : "search last a", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "search last a", "write" : "y", "action" : "RIGHT" },
             { "read" : "z", "to_state" : "search last a", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is last a", "write" : ">", "action" : "LEFT" },
             { "read" : ".", "to_state" : "is last a", "write" : ".", "action" : "LEFT" }
         ],
         "search last b" : [
@@ -150,7 +148,6 @@
             { "read" : "x", "to_state" : "search last b", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "search last b", "write" : "y", "action" : "RIGHT" },
             { "read" : "z", "to_state" : "search last b", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is last b", "write" : ">", "action" : "LEFT" },
             { "read" : ".", "to_state" : "is last b", "write" : ".", "action" : "LEFT" }
         ],
         "search last c" : [
@@ -180,7 +177,6 @@
             { "read" : "x", "to_state" : "search last c", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "search last c", "write" : "y", "action" : "RIGHT" },
             { "read" : "z", "to_state" : "search last c", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is last c", "write" : ">", "action" : "LEFT" },
             { "read" : ".", "to_state" : "is last c", "write" : ".", "action" : "LEFT" }
         ],
         "search last d" : [
@@ -210,7 +206,6 @@
             { "read" : "x", "to_state" : "search last d", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "search last d", "write" : "y", "action" : "RIGHT" },
             { "read" : "z", "to_state" : "search last d", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is last d", "write" : ">", "action" : "LEFT" },
             { "read" : ".", "to_state" : "is last d", "write" : ".", "action" : "LEFT" }
         ],
         "search last e" : [
@@ -240,7 +235,6 @@
             { "read" : "x", "to_state" : "search last e", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "search last e", "write" : "y", "action" : "RIGHT" },
             { "read" : "z", "to_state" : "search last e", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is last e", "write" : ">", "action" : "LEFT" },
             { "read" : ".", "to_state" : "is last e", "write" : ".", "action" : "LEFT" }
         ],
         "search last f" : [
@@ -270,7 +264,6 @@
             { "read" : "x", "to_state" : "search last f", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "search last f", "write" : "y", "action" : "RIGHT" },
             { "read" : "z", "to_state" : "search last f", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is last f", "write" : ">", "action" : "LEFT" },
             { "read" : ".", "to_state" : "is last f", "write" : ".", "action" : "LEFT" }
         ],
         "search last g" : [
@@ -300,7 +293,6 @@
             { "read" : "x", "to_state" : "search last g", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "search last g", "write" : "y", "action" : "RIGHT" },
             { "read" : "z", "to_state" : "search last g", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is last g", "write" : ">", "action" : "LEFT" },
             { "read" : ".", "to_state" : "is last g", "write" : ".", "action" : "LEFT" }
         ],
         "search last h" : [
@@ -330,7 +322,6 @@
             { "read" : "x", "to_state" : "search last h", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "search last h", "write" : "y", "action" : "RIGHT" },
             { "read" : "z", "to_state" : "search last h", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is last h", "write" : ">", "action" : "LEFT" },
             { "read" : ".", "to_state" : "is last h", "write" : ".", "action" : "LEFT" }
         ],
         "search last i" : [
@@ -360,7 +351,6 @@
             { "read" : "x", "to_state" : "search last i", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "search last i", "write" : "y", "action" : "RIGHT" },
             { "read" : "z", "to_state" : "search last i", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is last i", "write" : ">", "action" : "LEFT" },
             { "read" : ".", "to_state" : "is last i", "write" : ".", "action" : "LEFT" }
         ],
         "search last j" : [
@@ -390,7 +380,6 @@
             { "read" : "x", "to_state" : "search last j", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "search last j", "write" : "y", "action" : "RIGHT" },
             { "read" : "z", "to_state" : "search last j", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is last j", "write" : ">", "action" : "LEFT" },
             { "read" : ".", "to_state" : "is last j", "write" : ".", "action" : "LEFT" }
         ],
         "search last k" : [
@@ -420,7 +409,6 @@
             { "read" : "x", "to_state" : "search last k", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "search last k", "write" : "y", "action" : "RIGHT" },
             { "read" : "z", "to_state" : "search last k", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is last k", "write" : ">", "action" : "LEFT" },
             { "read" : ".", "to_state" : "is last k", "write" : ".", "action" : "LEFT" }
         ],
         "search last l" : [
@@ -450,7 +438,6 @@
             { "read" : "x", "to_state" : "search last l", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "search last l", "write" : "y", "action" : "RIGHT" },
             { "read" : "z", "to_state" : "search last l", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is last l", "write" : ">", "action" : "LEFT" },
             { "read" : ".", "to_state" : "is last l", "write" : ".", "action" : "LEFT" }
         ],
         "search last m" : [
@@ -480,7 +467,6 @@
             { "read" : "x", "to_state" : "search last m", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "search last m", "write" : "y", "action" : "RIGHT" },
             { "read" : "z", "to_state" : "search last m", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is last m", "write" : ">", "action" : "LEFT" },
             { "read" : ".", "to_state" : "is last m", "write" : ".", "action" : "LEFT" }
         ],
         "search last n" : [
@@ -510,7 +496,6 @@
             { "read" : "x", "to_state" : "search last n", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "search last n", "write" : "y", "action" : "RIGHT" },
             { "read" : "z", "to_state" : "search last n", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is last n", "write" : ">", "action" : "LEFT" },
             { "read" : ".", "to_state" : "is last n", "write" : ".", "action" : "LEFT" }
         ],
         "search last o" : [
@@ -540,7 +525,6 @@
             { "read" : "x", "to_state" : "search last o", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "search last o", "write" : "y", "action" : "RIGHT" },
             { "read" : "z", "to_state" : "search last o", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is last o", "write" : ">", "action" : "LEFT" },
             { "read" : ".", "to_state" : "is last o", "write" : ".", "action" : "LEFT" }
         ],
         "search last p" : [
@@ -570,7 +554,6 @@
             { "read" : "x", "to_state" : "search last p", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "search last p", "write" : "y", "action" : "RIGHT" },
             { "read" : "z", "to_state" : "search last p", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is last p", "write" : ">", "action" : "LEFT" },
             { "read" : ".", "to_state" : "is last p", "write" : ".", "action" : "LEFT" }
         ],
         "search last q" : [
@@ -600,7 +583,6 @@
             { "read" : "x", "to_state" : "search last q", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "search last q", "write" : "y", "action" : "RIGHT" },
             { "read" : "z", "to_state" : "search last q", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is last q", "write" : ">", "action" : "LEFT" },
             { "read" : ".", "to_state" : "is last q", "write" : ".", "action" : "LEFT" }
         ],
         "search last r" : [
@@ -630,7 +612,6 @@
             { "read" : "x", "to_state" : "search last r", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "search last r", "write" : "y", "action" : "RIGHT" },
             { "read" : "z", "to_state" : "search last r", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is last r", "write" : ">", "action" : "LEFT" },
             { "read" : ".", "to_state" : "is last r", "write" : ".", "action" : "LEFT" }
         ],
         "search last s" : [
@@ -660,7 +641,6 @@
             { "read" : "x", "to_state" : "search last s", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "search last s", "write" : "y", "action" : "RIGHT" },
             { "read" : "z", "to_state" : "search last s", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is last s", "write" : ">", "action" : "LEFT" },
             { "read" : ".", "to_state" : "is last s", "write" : ".", "action" : "LEFT" }
         ],
         "search last t" : [
@@ -690,7 +670,6 @@
             { "read" : "x", "to_state" : "search last t", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "search last t", "write" : "y", "action" : "RIGHT" },
             { "read" : "z", "to_state" : "search last t", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is last t", "write" : ">", "action" : "LEFT" },
             { "read" : ".", "to_state" : "is last t", "write" : ".", "action" : "LEFT" }
         ],
         "search last u" : [
@@ -720,7 +699,6 @@
             { "read" : "x", "to_state" : "search last u", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "search last u", "write" : "y", "action" : "RIGHT" },
             { "read" : "z", "to_state" : "search last u", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is last u", "write" : ">", "action" : "LEFT" },
             { "read" : ".", "to_state" : "is last u", "write" : ".", "action" : "LEFT" }
         ],
         "search last v" : [
@@ -750,7 +728,6 @@
             { "read" : "x", "to_state" : "search last v", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "search last v", "write" : "y", "action" : "RIGHT" },
             { "read" : "z", "to_state" : "search last v", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is last v", "write" : ">", "action" : "LEFT" },
             { "read" : ".", "to_state" : "is last v", "write" : ".", "action" : "LEFT" }
         ],
         "search last w" : [
@@ -780,7 +757,6 @@
             { "read" : "x", "to_state" : "search last w", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "search last w", "write" : "y", "action" : "RIGHT" },
             { "read" : "z", "to_state" : "search last w", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is last w", "write" : ">", "action" : "LEFT" },
             { "read" : ".", "to_state" : "is last w", "write" : ".", "action" : "LEFT" }
         ],
         "search last x" : [
@@ -810,7 +786,6 @@
             { "read" : "x", "to_state" : "search last x", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "search last x", "write" : "y", "action" : "RIGHT" },
             { "read" : "z", "to_state" : "search last x", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is last x", "write" : ">", "action" : "LEFT" },
             { "read" : ".", "to_state" : "is last x", "write" : ".", "action" : "LEFT" }
         ],
         "search last y" : [
@@ -840,7 +815,6 @@
             { "read" : "x", "to_state" : "search last y", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "search last y", "write" : "y", "action" : "RIGHT" },
             { "read" : "z", "to_state" : "search last y", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is last y", "write" : ">", "action" : "LEFT" },
             { "read" : ".", "to_state" : "is last y", "write" : ".", "action" : "LEFT" }
         ],
         "search last z" : [
@@ -870,11 +844,10 @@
             { "read" : "x", "to_state" : "search last z", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "search last z", "write" : "y", "action" : "RIGHT" },
             { "read" : "z", "to_state" : "search last z", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is last z", "write" : ">", "action" : "LEFT" },
             { "read" : ".", "to_state" : "is last z", "write" : ".", "action" : "LEFT" }
         ],
         "is last a" : [
-            { "read" : "a", "to_state" : "search first", "write" : ">", "action" : "LEFT" },
+            { "read" : "a", "to_state" : "search first", "write" : ".", "action" : "LEFT" },
             { "read" : "b", "to_state" : "is false", "write" : "b", "action" : "RIGHT" },
             { "read" : "c", "to_state" : "is false", "write" : "c", "action" : "RIGHT" },
             { "read" : "d", "to_state" : "is false", "write" : "d", "action" : "RIGHT" },
@@ -899,12 +872,11 @@
             { "read" : "w", "to_state" : "is false", "write" : "w", "action" : "RIGHT" },
             { "read" : "x", "to_state" : "is false", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "is false", "write" : "y", "action" : "RIGHT" },
-            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is false", "write" : ">", "action" : "RIGHT" }
+            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" }
         ],
         "is last b" : [
             { "read" : "a", "to_state" : "is false", "write" : "a", "action" : "RIGHT" },
-            { "read" : "b", "to_state" : "search first", "write" : ">", "action" : "LEFT" },
+            { "read" : "b", "to_state" : "search first", "write" : ".", "action" : "LEFT" },
             { "read" : "c", "to_state" : "is false", "write" : "c", "action" : "RIGHT" },
             { "read" : "d", "to_state" : "is false", "write" : "d", "action" : "RIGHT" },
             { "read" : "e", "to_state" : "is false", "write" : "e", "action" : "RIGHT" },
@@ -928,13 +900,12 @@
             { "read" : "w", "to_state" : "is false", "write" : "w", "action" : "RIGHT" },
             { "read" : "x", "to_state" : "is false", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "is false", "write" : "y", "action" : "RIGHT" },
-            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is false", "write" : ">", "action" : "RIGHT" }
+            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" }
         ],
         "is last c" : [
             { "read" : "a", "to_state" : "is false", "write" : "a", "action" : "RIGHT" },
             { "read" : "b", "to_state" : "is false", "write" : "b", "action" : "RIGHT" },
-            { "read" : "c", "to_state" : "search first", "write" : ">", "action" : "LEFT" },
+            { "read" : "c", "to_state" : "search first", "write" : ".", "action" : "LEFT" },
             { "read" : "d", "to_state" : "is false", "write" : "d", "action" : "RIGHT" },
             { "read" : "e", "to_state" : "is false", "write" : "e", "action" : "RIGHT" },
             { "read" : "f", "to_state" : "is false", "write" : "f", "action" : "RIGHT" },
@@ -957,14 +928,13 @@
             { "read" : "w", "to_state" : "is false", "write" : "w", "action" : "RIGHT" },
             { "read" : "x", "to_state" : "is false", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "is false", "write" : "y", "action" : "RIGHT" },
-            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is false", "write" : ">", "action" : "RIGHT" }
+            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" }
         ],
         "is last d" : [
             { "read" : "a", "to_state" : "is false", "write" : "a", "action" : "RIGHT" },
             { "read" : "b", "to_state" : "is false", "write" : "b", "action" : "RIGHT" },
             { "read" : "c", "to_state" : "is false", "write" : "c", "action" : "RIGHT" },
-            { "read" : "d", "to_state" : "search first", "write" : ">", "action" : "LEFT" },
+            { "read" : "d", "to_state" : "search first", "write" : ".", "action" : "LEFT" },
             { "read" : "e", "to_state" : "is false", "write" : "e", "action" : "RIGHT" },
             { "read" : "f", "to_state" : "is false", "write" : "f", "action" : "RIGHT" },
             { "read" : "g", "to_state" : "is false", "write" : "g", "action" : "RIGHT" },
@@ -986,15 +956,14 @@
             { "read" : "w", "to_state" : "is false", "write" : "w", "action" : "RIGHT" },
             { "read" : "x", "to_state" : "is false", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "is false", "write" : "y", "action" : "RIGHT" },
-            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is false", "write" : ">", "action" : "RIGHT" }
+            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" }
         ],
         "is last e" : [
             { "read" : "a", "to_state" : "is false", "write" : "a", "action" : "RIGHT" },
             { "read" : "b", "to_state" : "is false", "write" : "b", "action" : "RIGHT" },
             { "read" : "c", "to_state" : "is false", "write" : "c", "action" : "RIGHT" },
             { "read" : "d", "to_state" : "is false", "write" : "d", "action" : "RIGHT" },
-            { "read" : "e", "to_state" : "search first", "write" : ">", "action" : "LEFT" },
+            { "read" : "e", "to_state" : "search first", "write" : ".", "action" : "LEFT" },
             { "read" : "f", "to_state" : "is false", "write" : "f", "action" : "RIGHT" },
             { "read" : "g", "to_state" : "is false", "write" : "g", "action" : "RIGHT" },
             { "read" : "h", "to_state" : "is false", "write" : "h", "action" : "RIGHT" },
@@ -1015,8 +984,7 @@
             { "read" : "w", "to_state" : "is false", "write" : "w", "action" : "RIGHT" },
             { "read" : "x", "to_state" : "is false", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "is false", "write" : "y", "action" : "RIGHT" },
-            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is false", "write" : ">", "action" : "RIGHT" }
+            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" }
         ],
         "is last f" : [
             { "read" : "a", "to_state" : "is false", "write" : "a", "action" : "RIGHT" },
@@ -1024,7 +992,7 @@
             { "read" : "c", "to_state" : "is false", "write" : "c", "action" : "RIGHT" },
             { "read" : "d", "to_state" : "is false", "write" : "d", "action" : "RIGHT" },
             { "read" : "e", "to_state" : "is false", "write" : "e", "action" : "RIGHT" },
-            { "read" : "f", "to_state" : "search first", "write" : ">", "action" : "LEFT" },
+            { "read" : "f", "to_state" : "search first", "write" : ".", "action" : "LEFT" },
             { "read" : "g", "to_state" : "is false", "write" : "g", "action" : "RIGHT" },
             { "read" : "h", "to_state" : "is false", "write" : "h", "action" : "RIGHT" },
             { "read" : "i", "to_state" : "is false", "write" : "i", "action" : "RIGHT" },
@@ -1044,8 +1012,7 @@
             { "read" : "w", "to_state" : "is false", "write" : "w", "action" : "RIGHT" },
             { "read" : "x", "to_state" : "is false", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "is false", "write" : "y", "action" : "RIGHT" },
-            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is false", "write" : ">", "action" : "RIGHT" }
+            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" }
         ],
         "is last g" : [
             { "read" : "a", "to_state" : "is false", "write" : "a", "action" : "RIGHT" },
@@ -1054,7 +1021,7 @@
             { "read" : "d", "to_state" : "is false", "write" : "d", "action" : "RIGHT" },
             { "read" : "e", "to_state" : "is false", "write" : "e", "action" : "RIGHT" },
             { "read" : "f", "to_state" : "is false", "write" : "f", "action" : "RIGHT" },
-            { "read" : "g", "to_state" : "search first", "write" : ">", "action" : "LEFT" },
+            { "read" : "g", "to_state" : "search first", "write" : ".", "action" : "LEFT" },
             { "read" : "h", "to_state" : "is false", "write" : "h", "action" : "RIGHT" },
             { "read" : "i", "to_state" : "is false", "write" : "i", "action" : "RIGHT" },
             { "read" : "j", "to_state" : "is false", "write" : "j", "action" : "RIGHT" },
@@ -1073,8 +1040,7 @@
             { "read" : "w", "to_state" : "is false", "write" : "w", "action" : "RIGHT" },
             { "read" : "x", "to_state" : "is false", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "is false", "write" : "y", "action" : "RIGHT" },
-            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is false", "write" : ">", "action" : "RIGHT" }
+            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" }
         ],
         "is last h" : [
             { "read" : "a", "to_state" : "is false", "write" : "a", "action" : "RIGHT" },
@@ -1084,7 +1050,7 @@
             { "read" : "e", "to_state" : "is false", "write" : "e", "action" : "RIGHT" },
             { "read" : "f", "to_state" : "is false", "write" : "f", "action" : "RIGHT" },
             { "read" : "g", "to_state" : "is false", "write" : "g", "action" : "RIGHT" },
-            { "read" : "h", "to_state" : "search first", "write" : ">", "action" : "LEFT" },
+            { "read" : "h", "to_state" : "search first", "write" : ".", "action" : "LEFT" },
             { "read" : "i", "to_state" : "is false", "write" : "i", "action" : "RIGHT" },
             { "read" : "j", "to_state" : "is false", "write" : "j", "action" : "RIGHT" },
             { "read" : "k", "to_state" : "is false", "write" : "k", "action" : "RIGHT" },
@@ -1102,8 +1068,7 @@
             { "read" : "w", "to_state" : "is false", "write" : "w", "action" : "RIGHT" },
             { "read" : "x", "to_state" : "is false", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "is false", "write" : "y", "action" : "RIGHT" },
-            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is false", "write" : ">", "action" : "RIGHT" }
+            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" }
         ],
         "is last i" : [
             { "read" : "a", "to_state" : "is false", "write" : "a", "action" : "RIGHT" },
@@ -1114,7 +1079,7 @@
             { "read" : "f", "to_state" : "is false", "write" : "f", "action" : "RIGHT" },
             { "read" : "g", "to_state" : "is false", "write" : "g", "action" : "RIGHT" },
             { "read" : "h", "to_state" : "is false", "write" : "h", "action" : "RIGHT" },
-            { "read" : "i", "to_state" : "search first", "write" : ">", "action" : "LEFT" },
+            { "read" : "i", "to_state" : "search first", "write" : ".", "action" : "LEFT" },
             { "read" : "j", "to_state" : "is false", "write" : "j", "action" : "RIGHT" },
             { "read" : "k", "to_state" : "is false", "write" : "k", "action" : "RIGHT" },
             { "read" : "l", "to_state" : "is false", "write" : "l", "action" : "RIGHT" },
@@ -1131,8 +1096,7 @@
             { "read" : "w", "to_state" : "is false", "write" : "w", "action" : "RIGHT" },
             { "read" : "x", "to_state" : "is false", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "is false", "write" : "y", "action" : "RIGHT" },
-            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is false", "write" : ">", "action" : "RIGHT" }
+            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" }
         ],
         "is last j" : [
             { "read" : "a", "to_state" : "is false", "write" : "a", "action" : "RIGHT" },
@@ -1144,7 +1108,7 @@
             { "read" : "g", "to_state" : "is false", "write" : "g", "action" : "RIGHT" },
             { "read" : "h", "to_state" : "is false", "write" : "h", "action" : "RIGHT" },
             { "read" : "i", "to_state" : "is false", "write" : "i", "action" : "RIGHT" },
-            { "read" : "j", "to_state" : "search first", "write" : ">", "action" : "LEFT" },
+            { "read" : "j", "to_state" : "search first", "write" : ".", "action" : "LEFT" },
             { "read" : "k", "to_state" : "is false", "write" : "k", "action" : "RIGHT" },
             { "read" : "l", "to_state" : "is false", "write" : "l", "action" : "RIGHT" },
             { "read" : "m", "to_state" : "is false", "write" : "m", "action" : "RIGHT" },
@@ -1160,8 +1124,7 @@
             { "read" : "w", "to_state" : "is false", "write" : "w", "action" : "RIGHT" },
             { "read" : "x", "to_state" : "is false", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "is false", "write" : "y", "action" : "RIGHT" },
-            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is false", "write" : ">", "action" : "RIGHT" }
+            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" }
         ],
         "is last k" : [
             { "read" : "a", "to_state" : "is false", "write" : "a", "action" : "RIGHT" },
@@ -1174,7 +1137,7 @@
             { "read" : "h", "to_state" : "is false", "write" : "h", "action" : "RIGHT" },
             { "read" : "i", "to_state" : "is false", "write" : "i", "action" : "RIGHT" },
             { "read" : "j", "to_state" : "is false", "write" : "j", "action" : "RIGHT" },
-            { "read" : "k", "to_state" : "search first", "write" : ">", "action" : "LEFT" },
+            { "read" : "k", "to_state" : "search first", "write" : ".", "action" : "LEFT" },
             { "read" : "l", "to_state" : "is false", "write" : "l", "action" : "RIGHT" },
             { "read" : "m", "to_state" : "is false", "write" : "m", "action" : "RIGHT" },
             { "read" : "n", "to_state" : "is false", "write" : "n", "action" : "RIGHT" },
@@ -1189,8 +1152,7 @@
             { "read" : "w", "to_state" : "is false", "write" : "w", "action" : "RIGHT" },
             { "read" : "x", "to_state" : "is false", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "is false", "write" : "y", "action" : "RIGHT" },
-            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is false", "write" : ">", "action" : "RIGHT" }
+            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" }
         ],
         "is last l" : [
             { "read" : "a", "to_state" : "is false", "write" : "a", "action" : "RIGHT" },
@@ -1204,7 +1166,7 @@
             { "read" : "i", "to_state" : "is false", "write" : "i", "action" : "RIGHT" },
             { "read" : "j", "to_state" : "is false", "write" : "j", "action" : "RIGHT" },
             { "read" : "k", "to_state" : "is false", "write" : "k", "action" : "RIGHT" },
-            { "read" : "l", "to_state" : "search first", "write" : ">", "action" : "LEFT" },
+            { "read" : "l", "to_state" : "search first", "write" : ".", "action" : "LEFT" },
             { "read" : "m", "to_state" : "is false", "write" : "m", "action" : "RIGHT" },
             { "read" : "n", "to_state" : "is false", "write" : "n", "action" : "RIGHT" },
             { "read" : "o", "to_state" : "is false", "write" : "o", "action" : "RIGHT" },
@@ -1218,8 +1180,7 @@
             { "read" : "w", "to_state" : "is false", "write" : "w", "action" : "RIGHT" },
             { "read" : "x", "to_state" : "is false", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "is false", "write" : "y", "action" : "RIGHT" },
-            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is false", "write" : ">", "action" : "RIGHT" }
+            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" }
         ],
         "is last m" : [
             { "read" : "a", "to_state" : "is false", "write" : "a", "action" : "RIGHT" },
@@ -1234,7 +1195,7 @@
             { "read" : "j", "to_state" : "is false", "write" : "j", "action" : "RIGHT" },
             { "read" : "k", "to_state" : "is false", "write" : "k", "action" : "RIGHT" },
             { "read" : "l", "to_state" : "is false", "write" : "l", "action" : "RIGHT" },
-            { "read" : "m", "to_state" : "search first", "write" : ">", "action" : "LEFT" },
+            { "read" : "m", "to_state" : "search first", "write" : ".", "action" : "LEFT" },
             { "read" : "n", "to_state" : "is false", "write" : "n", "action" : "RIGHT" },
             { "read" : "o", "to_state" : "is false", "write" : "o", "action" : "RIGHT" },
             { "read" : "p", "to_state" : "is false", "write" : "p", "action" : "RIGHT" },
@@ -1247,8 +1208,7 @@
             { "read" : "w", "to_state" : "is false", "write" : "w", "action" : "RIGHT" },
             { "read" : "x", "to_state" : "is false", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "is false", "write" : "y", "action" : "RIGHT" },
-            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is false", "write" : ">", "action" : "RIGHT" }
+            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" }
         ],
         "is last n" : [
             { "read" : "a", "to_state" : "is false", "write" : "a", "action" : "RIGHT" },
@@ -1264,7 +1224,7 @@
             { "read" : "k", "to_state" : "is false", "write" : "k", "action" : "RIGHT" },
             { "read" : "l", "to_state" : "is false", "write" : "l", "action" : "RIGHT" },
             { "read" : "m", "to_state" : "is false", "write" : "m", "action" : "RIGHT" },
-            { "read" : "n", "to_state" : "search first", "write" : ">", "action" : "LEFT" },
+            { "read" : "n", "to_state" : "search first", "write" : ".", "action" : "LEFT" },
             { "read" : "o", "to_state" : "is false", "write" : "o", "action" : "RIGHT" },
             { "read" : "p", "to_state" : "is false", "write" : "p", "action" : "RIGHT" },
             { "read" : "q", "to_state" : "is false", "write" : "q", "action" : "RIGHT" },
@@ -1276,8 +1236,7 @@
             { "read" : "w", "to_state" : "is false", "write" : "w", "action" : "RIGHT" },
             { "read" : "x", "to_state" : "is false", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "is false", "write" : "y", "action" : "RIGHT" },
-            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is false", "write" : ">", "action" : "RIGHT" }
+            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" }
         ],
         "is last o" : [
             { "read" : "a", "to_state" : "is false", "write" : "a", "action" : "RIGHT" },
@@ -1294,7 +1253,7 @@
             { "read" : "l", "to_state" : "is false", "write" : "l", "action" : "RIGHT" },
             { "read" : "m", "to_state" : "is false", "write" : "m", "action" : "RIGHT" },
             { "read" : "n", "to_state" : "is false", "write" : "n", "action" : "RIGHT" },
-            { "read" : "o", "to_state" : "search first", "write" : ">", "action" : "LEFT" },
+            { "read" : "o", "to_state" : "search first", "write" : ".", "action" : "LEFT" },
             { "read" : "p", "to_state" : "is false", "write" : "p", "action" : "RIGHT" },
             { "read" : "q", "to_state" : "is false", "write" : "q", "action" : "RIGHT" },
             { "read" : "r", "to_state" : "is false", "write" : "r", "action" : "RIGHT" },
@@ -1305,8 +1264,7 @@
             { "read" : "w", "to_state" : "is false", "write" : "w", "action" : "RIGHT" },
             { "read" : "x", "to_state" : "is false", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "is false", "write" : "y", "action" : "RIGHT" },
-            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is false", "write" : ">", "action" : "RIGHT" }
+            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" }
         ],
         "is last p" : [
             { "read" : "a", "to_state" : "is false", "write" : "a", "action" : "RIGHT" },
@@ -1324,7 +1282,7 @@
             { "read" : "m", "to_state" : "is false", "write" : "m", "action" : "RIGHT" },
             { "read" : "n", "to_state" : "is false", "write" : "n", "action" : "RIGHT" },
             { "read" : "o", "to_state" : "is false", "write" : "o", "action" : "RIGHT" },
-            { "read" : "p", "to_state" : "search first", "write" : ">", "action" : "LEFT" },
+            { "read" : "p", "to_state" : "search first", "write" : ".", "action" : "LEFT" },
             { "read" : "q", "to_state" : "is false", "write" : "q", "action" : "RIGHT" },
             { "read" : "r", "to_state" : "is false", "write" : "r", "action" : "RIGHT" },
             { "read" : "s", "to_state" : "is false", "write" : "s", "action" : "RIGHT" },
@@ -1334,8 +1292,7 @@
             { "read" : "w", "to_state" : "is false", "write" : "w", "action" : "RIGHT" },
             { "read" : "x", "to_state" : "is false", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "is false", "write" : "y", "action" : "RIGHT" },
-            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is false", "write" : ">", "action" : "RIGHT" }
+            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" }
         ],
         "is last q" : [
             { "read" : "a", "to_state" : "is false", "write" : "a", "action" : "RIGHT" },
@@ -1354,7 +1311,7 @@
             { "read" : "n", "to_state" : "is false", "write" : "n", "action" : "RIGHT" },
             { "read" : "o", "to_state" : "is false", "write" : "o", "action" : "RIGHT" },
             { "read" : "p", "to_state" : "is false", "write" : "p", "action" : "RIGHT" },
-            { "read" : "q", "to_state" : "search first", "write" : ">", "action" : "LEFT" },
+            { "read" : "q", "to_state" : "search first", "write" : ".", "action" : "LEFT" },
             { "read" : "r", "to_state" : "is false", "write" : "r", "action" : "RIGHT" },
             { "read" : "s", "to_state" : "is false", "write" : "s", "action" : "RIGHT" },
             { "read" : "t", "to_state" : "is false", "write" : "t", "action" : "RIGHT" },
@@ -1363,8 +1320,7 @@
             { "read" : "w", "to_state" : "is false", "write" : "w", "action" : "RIGHT" },
             { "read" : "x", "to_state" : "is false", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "is false", "write" : "y", "action" : "RIGHT" },
-            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is false", "write" : ">", "action" : "RIGHT" }
+            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" }
         ],
         "is last r" : [
             { "read" : "a", "to_state" : "is false", "write" : "a", "action" : "RIGHT" },
@@ -1384,7 +1340,7 @@
             { "read" : "o", "to_state" : "is false", "write" : "o", "action" : "RIGHT" },
             { "read" : "p", "to_state" : "is false", "write" : "p", "action" : "RIGHT" },
             { "read" : "q", "to_state" : "is false", "write" : "q", "action" : "RIGHT" },
-            { "read" : "r", "to_state" : "search first", "write" : ">", "action" : "LEFT" },
+            { "read" : "r", "to_state" : "search first", "write" : ".", "action" : "LEFT" },
             { "read" : "s", "to_state" : "is false", "write" : "s", "action" : "RIGHT" },
             { "read" : "t", "to_state" : "is false", "write" : "t", "action" : "RIGHT" },
             { "read" : "u", "to_state" : "is false", "write" : "u", "action" : "RIGHT" },
@@ -1392,8 +1348,7 @@
             { "read" : "w", "to_state" : "is false", "write" : "w", "action" : "RIGHT" },
             { "read" : "x", "to_state" : "is false", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "is false", "write" : "y", "action" : "RIGHT" },
-            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is false", "write" : ">", "action" : "RIGHT" }
+            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" }
         ],
         "is last s" : [
             { "read" : "a", "to_state" : "is false", "write" : "a", "action" : "RIGHT" },
@@ -1414,15 +1369,14 @@
             { "read" : "p", "to_state" : "is false", "write" : "p", "action" : "RIGHT" },
             { "read" : "q", "to_state" : "is false", "write" : "q", "action" : "RIGHT" },
             { "read" : "r", "to_state" : "is false", "write" : "r", "action" : "RIGHT" },
-            { "read" : "s", "to_state" : "search first", "write" : ">", "action" : "LEFT" },
+            { "read" : "s", "to_state" : "search first", "write" : ".", "action" : "LEFT" },
             { "read" : "t", "to_state" : "is false", "write" : "t", "action" : "RIGHT" },
             { "read" : "u", "to_state" : "is false", "write" : "u", "action" : "RIGHT" },
             { "read" : "v", "to_state" : "is false", "write" : "v", "action" : "RIGHT" },
             { "read" : "w", "to_state" : "is false", "write" : "w", "action" : "RIGHT" },
             { "read" : "x", "to_state" : "is false", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "is false", "write" : "y", "action" : "RIGHT" },
-            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is false", "write" : ">", "action" : "RIGHT" }
+            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" }
         ],
         "is last t" : [
             { "read" : "a", "to_state" : "is false", "write" : "a", "action" : "RIGHT" },
@@ -1444,14 +1398,13 @@
             { "read" : "q", "to_state" : "is false", "write" : "q", "action" : "RIGHT" },
             { "read" : "r", "to_state" : "is false", "write" : "r", "action" : "RIGHT" },
             { "read" : "s", "to_state" : "is false", "write" : "s", "action" : "RIGHT" },
-            { "read" : "t", "to_state" : "search first", "write" : ">", "action" : "LEFT" },
+            { "read" : "t", "to_state" : "search first", "write" : ".", "action" : "LEFT" },
             { "read" : "u", "to_state" : "is false", "write" : "u", "action" : "RIGHT" },
             { "read" : "v", "to_state" : "is false", "write" : "v", "action" : "RIGHT" },
             { "read" : "w", "to_state" : "is false", "write" : "w", "action" : "RIGHT" },
             { "read" : "x", "to_state" : "is false", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "is false", "write" : "y", "action" : "RIGHT" },
-            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is false", "write" : ">", "action" : "RIGHT" }
+            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" }
         ],
         "is last u" : [
             { "read" : "a", "to_state" : "is false", "write" : "a", "action" : "RIGHT" },
@@ -1474,13 +1427,12 @@
             { "read" : "r", "to_state" : "is false", "write" : "r", "action" : "RIGHT" },
             { "read" : "s", "to_state" : "is false", "write" : "s", "action" : "RIGHT" },
             { "read" : "t", "to_state" : "is false", "write" : "t", "action" : "RIGHT" },
-            { "read" : "u", "to_state" : "search first", "write" : ">", "action" : "LEFT" },
+            { "read" : "u", "to_state" : "search first", "write" : ".", "action" : "LEFT" },
             { "read" : "v", "to_state" : "is false", "write" : "v", "action" : "RIGHT" },
             { "read" : "w", "to_state" : "is false", "write" : "w", "action" : "RIGHT" },
             { "read" : "x", "to_state" : "is false", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "is false", "write" : "y", "action" : "RIGHT" },
-            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is false", "write" : ">", "action" : "RIGHT" }
+            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" }
         ],
         "is last v" : [
             { "read" : "a", "to_state" : "is false", "write" : "a", "action" : "RIGHT" },
@@ -1504,12 +1456,11 @@
             { "read" : "s", "to_state" : "is false", "write" : "s", "action" : "RIGHT" },
             { "read" : "t", "to_state" : "is false", "write" : "t", "action" : "RIGHT" },
             { "read" : "u", "to_state" : "is false", "write" : "u", "action" : "RIGHT" },
-            { "read" : "v", "to_state" : "search first", "write" : ">", "action" : "LEFT" },
+            { "read" : "v", "to_state" : "search first", "write" : ".", "action" : "LEFT" },
             { "read" : "w", "to_state" : "is false", "write" : "w", "action" : "RIGHT" },
             { "read" : "x", "to_state" : "is false", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "is false", "write" : "y", "action" : "RIGHT" },
-            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is false", "write" : ">", "action" : "RIGHT" }
+            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" }
         ],
         "is last w" : [
             { "read" : "a", "to_state" : "is false", "write" : "a", "action" : "RIGHT" },
@@ -1534,11 +1485,10 @@
             { "read" : "t", "to_state" : "is false", "write" : "t", "action" : "RIGHT" },
             { "read" : "u", "to_state" : "is false", "write" : "u", "action" : "RIGHT" },
             { "read" : "v", "to_state" : "is false", "write" : "v", "action" : "RIGHT" },
-            { "read" : "w", "to_state" : "search first", "write" : ">", "action" : "LEFT" },
+            { "read" : "w", "to_state" : "search first", "write" : ".", "action" : "LEFT" },
             { "read" : "x", "to_state" : "is false", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "is false", "write" : "y", "action" : "RIGHT" },
-            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is false", "write" : ">", "action" : "RIGHT" }
+            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" }
         ],
         "is last x" : [
             { "read" : "a", "to_state" : "is false", "write" : "a", "action" : "RIGHT" },
@@ -1564,10 +1514,9 @@
             { "read" : "u", "to_state" : "is false", "write" : "u", "action" : "RIGHT" },
             { "read" : "v", "to_state" : "is false", "write" : "v", "action" : "RIGHT" },
             { "read" : "w", "to_state" : "is false", "write" : "w", "action" : "RIGHT" },
-            { "read" : "x", "to_state" : "search first", "write" : ">", "action" : "LEFT" },
+            { "read" : "x", "to_state" : "search first", "write" : ".", "action" : "LEFT" },
             { "read" : "y", "to_state" : "is false", "write" : "y", "action" : "RIGHT" },
-            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is false", "write" : ">", "action" : "RIGHT" }
+            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" }
         ],
         "is last y" : [
             { "read" : "a", "to_state" : "is false", "write" : "a", "action" : "RIGHT" },
@@ -1594,9 +1543,8 @@
             { "read" : "v", "to_state" : "is false", "write" : "v", "action" : "RIGHT" },
             { "read" : "w", "to_state" : "is false", "write" : "w", "action" : "RIGHT" },
             { "read" : "x", "to_state" : "is false", "write" : "x", "action" : "RIGHT" },
-            { "read" : "y", "to_state" : "search first", "write" : ">", "action" : "LEFT" },
-            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is false", "write" : ">", "action" : "RIGHT" }
+            { "read" : "y", "to_state" : "search first", "write" : ".", "action" : "LEFT" },
+            { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" }
         ],
         "is last z" : [
             { "read" : "a", "to_state" : "is false", "write" : "a", "action" : "RIGHT" },
@@ -1624,8 +1572,7 @@
             { "read" : "w", "to_state" : "is false", "write" : "w", "action" : "RIGHT" },
             { "read" : "x", "to_state" : "is false", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "is false", "write" : "y", "action" : "RIGHT" },
-            { "read" : "z", "to_state" : "search first", "write" : ">", "action" : "LEFT" },
-            { "read" : ">", "to_state" : "is false", "write" : ">", "action" : "RIGHT" }
+            { "read" : "z", "to_state" : "search first", "write" : ".", "action" : "LEFT" }
         ],
         "search first" : [
             { "read" : "a", "to_state" : "search first", "write" : "a", "action" : "LEFT" },
@@ -1654,7 +1601,6 @@
             { "read" : "x", "to_state" : "search first", "write" : "x", "action" : "LEFT" },
             { "read" : "y", "to_state" : "search first", "write" : "y", "action" : "LEFT" },
             { "read" : "z", "to_state" : "search first", "write" : "z", "action" : "LEFT" },
-            { "read" : ">", "to_state" : "is first", "write" : ">", "action" : "RIGHT" },
             { "read" : ".", "to_state" : "is first", "write" : ".", "action" : "RIGHT" }
         ],
         "is false" : [
@@ -1684,7 +1630,6 @@
             { "read" : "x", "to_state" : "is false", "write" : "x", "action" : "RIGHT" },
             { "read" : "y", "to_state" : "is false", "write" : "y", "action" : "RIGHT" },
             { "read" : "z", "to_state" : "is false", "write" : "z", "action" : "RIGHT" },
-            { "read" : ">", "to_state" : "is false", "write" : ">", "action" : "RIGHT" },
             { "read" : ".", "to_state" : "HALT", "write" : "n", "action" : "RIGHT" }
         ]
     }
