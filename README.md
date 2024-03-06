@@ -51,3 +51,23 @@ Programmation orientée objet (POO) traditionnelle : Bien que Rust permette cert
 Variables globales : L'utilisation de variables globales mutables via des constructions comme static mut ou l'utilisation abusive de conteneurs de type singleton qui contiennent un état mutable.
 
 Pour suivre les principes de la programmation fonctionnelle en Rust, concentrez-vous sur l'écriture de fonctions pures, l'utilisation de types immuables, l'adoption de patterns fonctionnels pour la manipulation de données (comme map, filter, fold) et la gestion explicite des erreurs et des valeurs optionnelles à travers Result et Option, plutôt que de recourir aux exceptions ou aux panics. En respectant ces principes, vous pourrez profiter des avantages de la programmation fonctionnelle tout en exploitant la puissance et la performance de Rust.
+
+## Definition:
+
+### Fonction pur :
+
+- Dépendance exclusive sur les arguments passés : Le résultat de la fonction doit uniquement dépendre des valeurs des arguments.
+- Pas de modification d'état : La fonction ne doit pas modifier d'états extérieurs (variables globales, entrées/sorties, etc.).
+- Pas d'effets de bords : La fonction ne doit avoir aucun effet de bord (pas de logs, pas d'appels réseau, pas d'interaction avec des fichiers, etc.).
+- Idempotence : Appeler la fonction plusieurs fois avec les mêmes arguments donnera toujours le même résultat.
+
+### Fonctions anonymes ou lambdas/closures :
+
+Ce sont des fonctions qui sont définies sans être nommées. Elles sont particulièrement utiles pour des opérations courtes que l'on souhaite passer en tant qu'arguments à d'autres fonctions,
+
+Exemple:
+`let exemple = |x: i32| x * x;`
+
+### Les Iterator :
+
+
