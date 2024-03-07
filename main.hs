@@ -6,7 +6,7 @@
 --   By: laraujo <laraujo@student.42.fr>            +#+  +:+       +#+        --
 --                                                +#+#+#+#+#+   +#+           --
 --   Created: 2024/03/07 18:26:08 by laraujo           #+#    #+#             --
---   Updated: 2024/03/07 18:26:13 by laraujo          ###   ########.fr       --
+--   Updated: 2024/03/07 19:29:08 by laraujo          ###   ########.fr       --
 --                                                                            --
 -- ************************************************************************** --
 
@@ -38,6 +38,17 @@ printInfiniteTape tape size = do
   putStr $ bold ++ rev ++ [cursor tape] ++ resetColor ++ grey_back
   putStrLn $ (take (size * 2) (right tape)) ++ resetColor
 
+writeCursor :: InfiniteTape -> Char -> InfiniteTape
+writeCursor (InfiniteTape left _ right) symbole = InfiniteTape left symbole right
+
+mvCursorLeft :: InfiniteTape -> InfiniteTape
+mvCursorLeft (InfiniteTape (l:left) cursor right) = InfiniteTape left l (cursor:right)
+
+mvCursorRight :: InfiniteTape -> InfiniteTape
+mvCursorRight (InfiniteTape left cursor (r:right)) = InfiniteTape (cursor:left) r right
+
+
+
 main :: IO ()
 main = do
   putStrLn "-------------------------------------------------"
@@ -60,3 +71,23 @@ main = do
 
   let tape = initInfiniteTape blank
   printInfiniteTape tape len_input
+
+  let tape1 = writeCursor tape '1'
+  printInfiniteTape tape1 len_input
+  let tape2 = mvCursorRight tape1
+  printInfiniteTape tape2 len_input
+
+  let tape3 = writeCursor tape2 '0'
+  printInfiniteTape tape3 len_input
+  let tape4 = mvCursorRight tape3
+  printInfiniteTape tape4 len_input
+
+  let tape5 = writeCursor tape4 '0'
+  printInfiniteTape tape5 len_input
+  let tape6 = mvCursorRight tape5
+  printInfiniteTape tape6 len_input
+
+  let tape7 = writeCursor tape6 '0'
+  printInfiniteTape tape7 len_input
+  let tape8 = mvCursorRight tape7
+  printInfiniteTape tape8 len_input
