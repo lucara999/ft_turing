@@ -6,7 +6,7 @@
 --   By: laraujo <laraujo@student.42lyon.fr>        +#+  +:+       +#+        --
 --                                                +#+#+#+#+#+   +#+           --
 --   Created: 2024/03/07 18:26:08 by laraujo           #+#    #+#             --
---   Updated: 2024/03/08 16:27:02 by laraujo          ###   ########lyon.fr   --
+--   Updated: 2024/03/08 17:21:43 by laraujo          ###   ########lyon.fr   --
 --                                                                            --
 -- ************************************************************************** --
 
@@ -22,20 +22,21 @@ data InfiniteTape = InfiniteTape {
 }
 
 data TuringMachine = TuringMachine {
+  print_size :: Int,
   states :: [String],
   alphabet :: [Char],
   init_state :: String,
-  final_state :: String,
+  finals_state :: [String],
   transitions :: Transitions
 }
 
 type Action = String
 
 data Transition = Transition {
-  state :: String,
-  read :: Char,
+  state_key :: String,
+  read_cur :: Char,
   to_state :: String,
-  write :: Char,
+  write_cur :: Char,
   action :: Action
 }
 
@@ -82,13 +83,18 @@ mvRightSearch tape search
   | cursor tape == search = tape
   | otherwise = mvRightSearch (mvCursorRight tape) search
 
--- findTransition :: Char -> TuringMachine -> Transition
--- findTransition cursor' turing_machine =
+findTransition :: Char -> String -> Transitions -> Transition
+findTransition cursor' state' transitions' = head [x | x <- transitions', state_key x == state', read_cur x == cursor']
 
--- runTuringMachine :: InfiniteTape -> TuringMachine -> state -> (InfiniteTape, TuringMachine)
--- runTuringMachine tape turing_machine
---   | final_state turing_machine == state = (tape, turing_machine)
---   | otherwise = do 
+runTuringMachine :: InfiniteTape -> TuringMachine -> String -> IO () --(InfiniteTape, TuringMachine)
+runTuringMachine tape turing_machine actual_state
+  | actual_state `elem` finals_state turing_machine = putStrLn actual_state
+  | otherwise = do 
+    let transition = findTransition (cursor tape) actual_state (transitions turing_machine)
+    let tape' = writeCursor tape (write_cur transition)
+    let tape'' = mvAction tape' (action transition)
+    printInfiniteTape tape'' (print_size turing_machine)
+    runTuringMachine tape'' turing_machine (to_state transition)
 
 main :: IO ()
 main = do
@@ -113,10 +119,11 @@ main = do
   let blank = '.'
 
   let turing_machine = TuringMachine {
-    states = ["impaire", "paire", "HALT"],
+    print_size = len_input,
+    states = ["impaire", "paire", "HALT", "STOP"],
     alphabet = ['0', '.'],
     init_state = "impaire",
-    final_state = "HALT",
+    finals_state = ["HALT", "STOP"],
     transitions = [
       Transition "impaire" '0' "paire" '0' "RIGHT",
       Transition "impaire" '.' "HALT" 'y' "RIGHT",
@@ -127,11 +134,13 @@ main = do
   let tape = initInfiniteTape input_str blank
   printInfiniteTape tape len_input
 
+  runTuringMachine tape turing_machine (init_state turing_machine)
+  -- printInfiniteTape tape' len_input
 
-  let tape1 = mvRightSearch tape '='
-  printInfiniteTape tape1 len_input
+  -- let tape1 = mvRightSearch tape '='
+  -- printInfiniteTape tape1 len_input
 
-  let tape2 = mvAction tape1 "RIGHT"
-  printInfiniteTape tape2 len_input
+  -- let tape2 = mvAction tape1 "RIGHT"
+  -- printInfiniteTape tape2 len_input
 
 
