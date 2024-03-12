@@ -1,0 +1,238 @@
+{
+    "name" : "UniversalTuringMachine",
+    "alphabet" : [ ".", "0", "1", "A", "B", "M", "S", "Y", "X" ],
+    "blank" : ".",
+    "states" : [
+        "p0", "p1", "p2", "p3",
+        "q0", "q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9",
+        "q10", "q11", "q12", "q13", "q14", "q15", "q16", "q17", "q18", "q19",
+        "q20", "q21", "q22", "q23"
+    ],
+    "initial" : "p0",
+    "finals" : [ "q0" ],
+    "transitions" : {
+        "p0" : [
+            { "read" : "0", "to_state" : "p0", "write" : "0", "action" : "RIGHT" },
+            { "read" : "1", "to_state" : "p0", "write" : "1", "action" : "RIGHT" },
+            { "read" : "A", "to_state" : "p0", "write" : "A", "action" : "RIGHT" },
+            { "read" : "B", "to_state" : "p0", "write" : "B", "action" : "RIGHT" },
+            { "read" : "M", "to_state" : "p0", "write" : "M", "action" : "RIGHT" },
+            { "read" : "S", "to_state" : "p0", "write" : "S", "action" : "RIGHT" },
+            { "read" : "Y", "to_state" : "p0", "write" : "Y", "action" : "RIGHT" },
+            { "read" : "X", "to_state" : "p0", "write" : "X", "action" : "RIGHT" },
+            { "read" : ".", "to_state" : "p1", "write" : ".", "action" : "LEFT" }
+        ],
+        "p1" : [
+            { "read" : "0", "to_state" : "p1", "write" : "0", "action" : "LEFT" },
+            { "read" : "Y", "to_state" : "p2", "write" : "Y", "action" : "LEFT" }
+        ],
+        "p2" : [
+            { "read" : "0", "to_state" : "p2", "write" : "0", "action" : "LEFT" },
+            { "read" : "1", "to_state" : "p2", "write" : "1", "action" : "LEFT" },
+            { "read" : "Y", "to_state" : "p3", "write" : "Y", "action" : "RIGHT" },
+            { "read" : "X", "to_state" : "p2", "write" : "X", "action" : "LEFT" }
+        ],
+        "p3" : [
+            { "read" : "0", "to_state" : "p2", "write" : "0", "action" : "RIGHT" },
+            { "read" : "1", "to_state" : "p2", "write" : "1", "action" : "RIGHT" },
+            { "read" : "X", "to_state" : "q6", "write" : "X", "action" : "LEFT" }
+        ],
+        "q1" : [
+            { "read" : "0", "to_state" : "q3", "write" : "A", "action" : "LEFT" },
+            { "read" : "1", "to_state" : "q4", "write" : "B", "action" : "RIGHT" },
+            { "read" : "A", "to_state" : "q1", "write" : "A", "action" : "RIGHT" },
+            { "read" : "B", "to_state" : "q1", "write" : "B", "action" : "RIGHT" },
+            { "read" : "X", "to_state" : "q1", "write" : "X", "action" : "RIGHT" }
+        ],
+        "q2" : [
+            { "read" : "0", "to_state" : "q2", "write" : "0", "action" : "RIGHT" },
+            { "read" : "1", "to_state" : "q2", "write" : "1", "action" : "RIGHT" },
+            { "read" : "A", "to_state" : "q1", "write" : "0", "action" : "RIGHT" },
+            { "read" : "B", "to_state" : "q5", "write" : "1", "action" : "RIGHT" },
+            { "read" : "M", "to_state" : "q2", "write" : "M", "action" : "RIGHT" },
+            { "read" : "X", "to_state" : "q7", "write" : "X", "action" : "RIGHT" }
+        ],
+        "q3" : [
+            { "read" : "0", "to_state" : "q3", "write" : "0", "action" : "LEFT" },
+            { "read" : "1", "to_state" : "q3", "write" : "1", "action" : "LEFT" },
+            { "read" : "A", "to_state" : "q3", "write" : "A", "action" : "LEFT" },
+            { "read" : "B", "to_state" : "q3", "write" : "B", "action" : "LEFT" },
+            { "read" : "M", "to_state" : "q3", "write" : "M", "action" : "LEFT" },
+            { "read" : "Y", "to_state" : "q2", "write" : "Y", "action" : "RIGHT" },
+            { "read" : "X", "to_state" : "q3", "write" : "X", "action" : "LEFT" }
+        ],
+        "q4" : [
+            { "read" : "0", "to_state" : "q4", "write" : "0", "action" : "RIGHT" },
+            { "read" : "1", "to_state" : "q4", "write" : "1", "action" : "RIGHT" },
+            { "read" : "Y", "to_state" : "q0", "write" : "Y", "action" : "RIGHT" },
+            { "read" : "X", "to_state" : "q6", "write" : "X", "action" : "LEFT" }
+        ],
+        "q5" : [
+            { "read" : "0", "to_state" : "q4", "write" : "A", "action" : "RIGHT" },
+            { "read" : "1", "to_state" : "q3", "write" : "B", "action" : "LEFT" },
+            { "read" : "A", "to_state" : "q5", "write" : "A", "action" : "RIGHT" },
+            { "read" : "B", "to_state" : "q5", "write" : "B", "action" : "RIGHT" },
+            { "read" : "X", "to_state" : "q5", "write" : "X", "action" : "RIGHT" }
+        ],
+        "q6" : [
+            { "read" : "0", "to_state" : "q6", "write" : "A", "action" : "LEFT" },
+            { "read" : "1", "to_state" : "q6", "write" : "B", "action" : "LEFT" },
+            { "read" : "A", "to_state" : "q6", "write" : "A", "action" : "LEFT" },
+            { "read" : "B", "to_state" : "q6", "write" : "B", "action" : "LEFT" },
+            { "read" : "M", "to_state" : "q6", "write" : "M", "action" : "LEFT" },
+            { "read" : "Y", "to_state" : "q2", "write" : "Y", "action" : "RIGHT" },
+            { "read" : "X", "to_state" : "q6", "write" : "X", "action" : "LEFT" }
+        ],
+        "q7" : [
+            { "read" : "0", "to_state" : "q9", "write" : "A", "action" : "LEFT" },
+            { "read" : "1", "to_state" : "q8", "write" : "B", "action" : "LEFT" },
+            { "read" : "A", "to_state" : "q7", "write" : "A", "action" : "RIGHT" },
+            { "read" : "B", "to_state" : "q7", "write" : "B", "action" : "RIGHT" },
+            { "read" : "Y", "to_state" : "q7", "write" : "Y", "action" : "RIGHT" },
+            { "read" : "X", "to_state" : "q7", "write" : "X", "action" : "RIGHT" }
+        ],
+        "q8" : [
+            { "read" : "0", "to_state" : "q8", "write" : "0", "action" : "LEFT" },
+            { "read" : "1", "to_state" : "q8", "write" : "1", "action" : "LEFT" },
+            { "read" : "A", "to_state" : "q8", "write" : "A", "action" : "LEFT" },
+            { "read" : "B", "to_state" : "q8", "write" : "B", "action" : "LEFT" },
+            { "read" : "S", "to_state" : "q8", "write" : "S", "action" : "LEFT" },
+            { "read" : "Y", "to_state" : "q10", "write" : "Y", "action" : "RIGHT" },
+            { "read" : "X", "to_state" : "q8", "write" : "X", "action" : "LEFT" }
+        ],
+        "q9" : [
+            { "read" : "0", "to_state" : "q9", "write" : "0", "action" : "LEFT" },
+            { "read" : "1", "to_state" : "q9", "write" : "1", "action" : "LEFT" },
+            { "read" : "A", "to_state" : "q9", "write" : "A", "action" : "LEFT" },
+            { "read" : "B", "to_state" : "q9", "write" : "B", "action" : "LEFT" },
+            { "read" : "M", "to_state" : "q9", "write" : "M", "action" : "LEFT" },
+            { "read" : "S", "to_state" : "q9", "write" : "S", "action" : "LEFT" },
+            { "read" : "Y", "to_state" : "q11", "write" : "Y", "action" : "RIGHT" },
+            { "read" : "X", "to_state" : "q9", "write" : "X", "action" : "LEFT" }
+        ],
+        "q10" : [
+            { "read" : "0", "to_state" : "q12", "write" : "B", "action" : "RIGHT" },
+            { "read" : "1", "to_state" : "q12", "write" : "B", "action" : "RIGHT" },
+            { "read" : "A", "to_state" : "q10", "write" : "A", "action" : "RIGHT" },
+            { "read" : "B", "to_state" : "q10", "write" : "B", "action" : "RIGHT" },
+            { "read" : "S", "to_state" : "q10", "write" : "S", "action" : "RIGHT" },
+            { "read" : "X", "to_state" : "q13", "write" : "X", "action" : "LEFT" }
+        ],
+        "q11" : [
+            { "read" : "0", "to_state" : "q12", "write" : "A", "action" : "RIGHT" },
+            { "read" : "1", "to_state" : "q12", "write" : "A", "action" : "RIGHT" },
+            { "read" : "A", "to_state" : "q11", "write" : "A", "action" : "RIGHT" },
+            { "read" : "B", "to_state" : "q11", "write" : "B", "action" : "RIGHT" },
+            { "read" : "M", "to_state" : "q11", "write" : "M", "action" : "RIGHT" },
+            { "read" : "S", "to_state" : "q11", "write" : "S", "action" : "RIGHT" },
+            { "read" : "X", "to_state" : "q14", "write" : "X", "action" : "LEFT" }
+        ],
+        "q12" : [
+            { "read" : "0", "to_state" : "q12", "write" : "0", "action" : "RIGHT" },
+            { "read" : "1", "to_state" : "q12", "write" : "1", "action" : "RIGHT" },
+            { "read" : "S", "to_state" : "q12", "write" : "S", "action" : "RIGHT" },
+            { "read" : "X", "to_state" : "q7", "write" : "X", "action" : "RIGHT" }
+        ],
+        "q13" : [
+            { "read" : "0", "to_state" : "q13", "write" : "0", "action" : "LEFT" },
+            { "read" : "1", "to_state" : "q13", "write" : "1", "action" : "LEFT" },
+            { "read" : "A", "to_state" : "q13", "write" : "A", "action" : "LEFT" },
+            { "read" : "B", "to_state" : "q13", "write" : "B", "action" : "LEFT" },
+            { "read" : "M", "to_state" : "q15", "write" : "B", "action" : "RIGHT" },
+            { "read" : "S", "to_state" : "q13", "write" : "S", "action" : "LEFT" },
+            { "read" : "Y", "to_state" : "q13", "write" : "Y", "action" : "LEFT" },
+            { "read" : "X", "to_state" : "q13", "write" : "X", "action" : "LEFT" }
+        ],
+        "q14" : [
+            { "read" : "0", "to_state" : "q14", "write" : "0", "action" : "LEFT" },
+            { "read" : "1", "to_state" : "q14", "write" : "1", "action" : "LEFT" },
+            { "read" : "A", "to_state" : "q14", "write" : "A", "action" : "LEFT" },
+            { "read" : "B", "to_state" : "q14", "write" : "B", "action" : "LEFT" },
+            { "read" : "M", "to_state" : "q15", "write" : "A", "action" : "RIGHT" },
+            { "read" : "S", "to_state" : "q14", "write" : "S", "action" : "LEFT" },
+            { "read" : "Y", "to_state" : "q14", "write" : "Y", "action" : "LEFT" },
+            { "read" : "X", "to_state" : "q14", "write" : "X", "action" : "LEFT" }
+        ],
+        "q15" : [
+            { "read" : "0", "to_state" : "q15", "write" : "0", "action" : "RIGHT" },
+            { "read" : "1", "to_state" : "q15", "write" : "1", "action" : "RIGHT" },
+            { "read" : "A", "to_state" : "q15", "write" : "0", "action" : "RIGHT" },
+            { "read" : "B", "to_state" : "q15", "write" : "1", "action" : "RIGHT" },
+            { "read" : "Y", "to_state" : "q15", "write" : "Y", "action" : "RIGHT" },
+            { "read" : "X", "to_state" : "q16", "write" : "X", "action" : "RIGHT" }
+        ],
+        "q16" : [
+            { "read" : "0", "to_state" : "q17", "write" : "0", "action" : "LEFT" },
+            { "read" : "1", "to_state" : "q17", "write" : "1", "action" : "LEFT" },
+            { "read" : "A", "to_state" : "q16", "write" : "A", "action" : "RIGHT" },
+            { "read" : "B", "to_state" : "q16", "write" : "B", "action" : "RIGHT" },
+            { "read" : "S", "to_state" : "q16", "write" : "S", "action" : "RIGHT" },
+            { "read" : "Y", "to_state" : "q16", "write" : "Y", "action" : "RIGHT" },
+            { "read" : "X", "to_state" : "q16", "write" : "X", "action" : "RIGHT" }
+        ],
+        "q17" : [
+            { "read" : "0", "to_state" : "q22", "write" : "S", "action" : "LEFT" },
+            { "read" : "1", "to_state" : "q23", "write" : "S", "action" : "LEFT" },
+            { "read" : "A", "to_state" : "q17", "write" : "0", "action" : "LEFT" },
+            { "read" : "B", "to_state" : "q17", "write" : "1", "action" : "LEFT" },
+            { "read" : "S", "to_state" : "q17", "write" : "S", "action" : "LEFT" },
+            { "read" : "Y", "to_state" : "q17", "write" : "Y", "action" : "LEFT" },
+            { "read" : "X", "to_state" : "q17", "write" : "X", "action" : "LEFT" }
+        ],
+        "q18" : [
+            { "read" : "0", "to_state" : "q18", "write" : "0", "action" : "RIGHT" },
+            { "read" : "1", "to_state" : "q18", "write" : "1", "action" : "RIGHT" },
+            { "read" : "A", "to_state" : "q18", "write" : "A", "action" : "RIGHT" },
+            { "read" : "B", "to_state" : "q18", "write" : "B", "action" : "RIGHT" },
+            { "read" : "S", "to_state" : "q6", "write" : "A", "action" : "LEFT" },
+            { "read" : "Y", "to_state" : "q18", "write" : "Y", "action" : "RIGHT" },
+            { "read" : "X", "to_state" : "q18", "write" : "X", "action" : "RIGHT" }
+        ],
+        "q19" : [
+            { "read" : "0", "to_state" : "q19", "write" : "0", "action" : "RIGHT" },
+            { "read" : "1", "to_state" : "q19", "write" : "1", "action" : "RIGHT" },
+            { "read" : "A", "to_state" : "q19", "write" : "A", "action" : "RIGHT" },
+            { "read" : "B", "to_state" : "q19", "write" : "B", "action" : "RIGHT" },
+            { "read" : "S", "to_state" : "q6", "write" : "B", "action" : "LEFT" },
+            { "read" : "Y", "to_state" : "q19", "write" : "Y", "action" : "RIGHT" },
+            { "read" : "X", "to_state" : "q19", "write" : "X", "action" : "RIGHT" }
+        ],
+        "q20" : [
+            { "read" : "0", "to_state" : "q18", "write" : "M", "action" : "RIGHT" },
+            { "read" : "1", "to_state" : "q19", "write" : "M", "action" : "RIGHT" },
+            { "read" : "A", "to_state" : "q20", "write" : "A", "action" : "RIGHT" },
+            { "read" : "B", "to_state" : "q20", "write" : "B", "action" : "RIGHT" },
+            { "read" : "S", "to_state" : "q20", "write" : "S", "action" : "RIGHT" },
+            { "read" : "Y", "to_state" : "q20", "write" : "Y", "action" : "RIGHT" },
+            { "read" : "X", "to_state" : "q20", "write" : "X", "action" : "RIGHT" }
+        ],
+        "q21" : [
+            { "read" : "0", "to_state" : "q18", "write" : "M", "action" : "RIGHT" },
+            { "read" : "1", "to_state" : "q19", "write" : "M", "action" : "RIGHT" },
+            { "read" : "A", "to_state" : "q21", "write" : "A", "action" : "LEFT" },
+            { "read" : "B", "to_state" : "q21", "write" : "B", "action" : "LEFT" },
+            { "read" : "S", "to_state" : "q21", "write" : "S", "action" : "LEFT" },
+            { "read" : "Y", "to_state" : "q21", "write" : "Y", "action" : "LEFT" },
+            { "read" : "X", "to_state" : "q21", "write" : "X", "action" : "LEFT" }
+        ],
+        "q22" : [
+            { "read" : "0", "to_state" : "q22", "write" : "0", "action" : "LEFT" },
+            { "read" : "1", "to_state" : "q22", "write" : "1", "action" : "LEFT" },
+            { "read" : "A", "to_state" : "q21", "write" : "0", "action" : "LEFT" },
+            { "read" : "B", "to_state" : "q20", "write" : "1", "action" : "RIGHT" },
+            { "read" : "Y", "to_state" : "q22", "write" : "Y", "action" : "LEFT" }
+        ],
+        "q23" : [
+            { "read" : "0", "to_state" : "q23", "write" : "1", "action" : "LEFT" },
+            { "read" : "1", "to_state" : "q23", "write" : "1", "action" : "LEFT" },
+            { "read" : "A", "to_state" : "q21", "write" : "0", "action" : "LEFT" },
+            { "read" : "B", "to_state" : "q20", "write" : "1", "action" : "RIGHT" },
+            { "read" : "Y", "to_state" : "q23", "write" : "Y", "action" : "LEFT" }
+        ]
+    }
+}
+
+//M00Y001X0010011X0000111X0110000X0101000X1011100X1001100X1111111Y0
+//M101110Y001X0010011X0000111X0110000X0101000X1011001X1001100Y0
+//M101110Y001X0010011X0000111X0110000Y0
+//M101110Y01X01011X00111X11000Y0
