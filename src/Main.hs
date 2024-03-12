@@ -6,7 +6,7 @@
 --   By: laraujo <laraujo@student.42.fr>            +#+  +:+       +#+        --
 --                                                +#+#+#+#+#+   +#+           --
 --   Created: 2024/03/07 18:26:08 by laraujo           #+#    #+#             --
---   Updated: 2024/03/12 14:30:17 by laraujo          ###   ########.fr       --
+--   Updated: 2024/03/12 15:17:04 by laraujo          ###   ########.fr       --
 --                                                                            --
 -- ************************************************************************** --
 
@@ -132,22 +132,23 @@ runTuringMachine tape turing_machine actual_state
 
 main :: IO ()
 main = do
-  putStrLn "#############################################################"
-  putStrLn "#-----------------------------------------------------------#"
-  putStrLn "#----------------------- FT_TURING -------------------------#"
-  putStrLn "#-----------------------------------------------------------#"
-  putStrLn "#                                                           #"
-
   args <- getArgs
   if length args < 2 then do
     putStrLn "2 args is required"
     exitSuccess
   else
     putStrLn ""
+
   let max_print_size = 10
   let name_file = head args
   let input_str = args !! 1
   let len_print = min (length input_str) max_print_size
+
+  putStrLn "#############################################################"
+  putStrLn "#-----------------------------------------------------------#"
+  putStrLn "#----------------------- FT_TURING -------------------------#"
+  putStrLn "#-----------------------------------------------------------#"
+  putStrLn "#                                                           #"
   putStrLn $ "FileName : " ++ name_file
   putStrLn $ "Input_str : " ++ input_str ++ "\n"
 
