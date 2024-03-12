@@ -3,10 +3,10 @@
 --                                                        :::      ::::::::   --
 --   Main.hs                                            :+:      :+:    :+:   --
 --                                                    +:+ +:+         +:+     --
---   By: laraujo <laraujo@student.42lyon.fr>        +#+  +:+       +#+        --
+--   By: laraujo <laraujo@student.42.fr>            +#+  +:+       +#+        --
 --                                                +#+#+#+#+#+   +#+           --
 --   Created: 2024/03/07 18:26:08 by laraujo           #+#    #+#             --
---   Updated: 2024/03/08 18:41:57 by laraujo          ###   ########lyon.fr   --
+--   Updated: 2024/03/12 14:30:17 by laraujo          ###   ########.fr       --
 --                                                                            --
 -- ************************************************************************** --
 
@@ -73,6 +73,13 @@ printStepTuring prefix tape size detail = do
   putStr $ bold ++ rev ++ [cursor tape] ++ resetColor ++ grey_back
   putStrLn $ take (size * 2) (right tape) ++ resetColor ++ "\t" ++ detail
 
+printErrorTransition :: Transition -> IO ()
+printErrorTransition transition_error = do
+  let resetColor = "\ESC[0m"
+  let red = "\ESC[1;31m"
+
+  putStrLn $ "\t" ++ red ++ "The machine is blocked transition error:"
+  putStrLn $ "\t\t(" ++ state_key transition_error ++ ", " ++ [read_cur transition_error] ++ ") -> (" ++ action transition_error ++ ")" ++ resetColor
 
 writeCursor :: InfiniteTape -> Char -> InfiniteTape
 writeCursor (InfiniteTape left' _ right') symbole = InfiniteTape left' symbole right'
@@ -96,8 +103,11 @@ mvRightSearch tape search
   | cursor tape == search = tape
   | otherwise = mvRightSearch (mvCursorRight tape) search
 
-findTransition :: Char -> String -> Transitions -> Transition
-findTransition cursor' state' transitions' = head [x | x <- transitions', state_key x == state', read_cur x == cursor']
+findTransition :: Char -> String -> [Transition] -> String -> Transition
+findTransition cursor' state' transitions' final_state =
+  case [x | x <- transitions', state_key x == state', read_cur x == cursor'] of
+    [] -> Transition state' cursor' final_state cursor' ""
+    (x:_) -> x
 
 runTuringMachine :: InfiniteTape -> TuringMachine -> String -> IO () --(InfiniteTape, TuringMachine)
 runTuringMachine tape turing_machine actual_state
@@ -105,16 +115,20 @@ runTuringMachine tape turing_machine actual_state
     putStrLn "Final State reached :"
     printInfiniteTape tape (len_input turing_machine)
   | otherwise = do
-    let transition = findTransition (cursor tape) actual_state (transitions turing_machine)
+    let transition = findTransition (cursor tape) actual_state (transitions turing_machine) (head (finals_state turing_machine))
     let tape' = writeCursor tape (write_cur transition)
     let tape'' = mvAction tape' (action transition)
 
-    let str = "(" ++ state_key transition ++ ", " ++ [read_cur transition] ++ ") \t\t‾‾|"
-    let str' = "(" ++ to_state transition ++ ", " ++ [write_cur transition] ++ ", " ++ action transition ++ ") \t__|"
-    printStepTuring "|‾‾\t" tape (print_size turing_machine) str
-    printStepTuring "|__\t" tape' (print_size turing_machine) str'
+    if action transition `elem` ["LEFT", "RIGHT"] then do
+      let str = "(" ++ state_key transition ++ ", " ++ [read_cur transition] ++ ") \t\t‾‾|"
+      let str' = "(" ++ to_state transition ++ ", " ++ [write_cur transition] ++ ", " ++ action transition ++ ") \t__|"
+      printStepTuring "|‾‾\t" tape (print_size turing_machine) str
+      printStepTuring "|__\t" tape' (print_size turing_machine) str'
 
-    runTuringMachine tape'' turing_machine (to_state transition)
+      runTuringMachine tape'' turing_machine (to_state transition)
+    else do
+      printStepTuring "\ESC[41m-->\t" tape (print_size turing_machine) "\ESC[41m\t\t\t<--\ESC[0m"
+      printErrorTransition transition
 
 main :: IO ()
 main = do
