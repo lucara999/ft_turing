@@ -6,7 +6,7 @@
 --   By: laraujo <laraujo@student.42.fr>            +#+  +:+       +#+        --
 --                                                +#+#+#+#+#+   +#+           --
 --   Created: 2024/03/07 18:26:08 by laraujo           #+#    #+#             --
---   Updated: 2024/03/12 15:17:04 by laraujo          ###   ########.fr       --
+--   Updated: 2024/03/12 16:21:14 by laraujo          ###   ########.fr       --
 --                                                                            --
 -- ************************************************************************** --
 
@@ -127,17 +127,37 @@ runTuringMachine tape turing_machine actual_state
 
       runTuringMachine tape'' turing_machine (to_state transition)
     else do
-      printStepTuring "\ESC[41m-->\t" tape (print_size turing_machine) "\ESC[41m\t\t\t<--\ESC[0m"
+      printStepTuring "\ESC[41m——>\t" tape (print_size turing_machine) "\ESC[41m\t\t\t<——\ESC[0m"
       printErrorTransition transition
+
+printHelp :: IO ()
+printHelp = do
+  putStrLn $ "usage: ft_turing \ESC[30;3m{-h/--help}\ESC[0m jsonfile input\n"
+  putStrLn $ "positional arguments:"
+  putStrLn $ "\tjsonfile\t json description of the machine\n"
+  putStrLn $ "\tinput\t\t input of the machine\n"
+  putStrLn $ "\ESC[30;3moptional arguments:"
+  putStrLn $ "\t-h, --help\t  show this help message and exit\ESC[0m"
+
+argsParse :: Int -> [String] -> IO ()
+argsParse args_len' args'
+  | args_len' == 2 = putStr ""
+  | args_len' == 1 = do
+    if args' !! 0 == "-h" || args' !! 0 == "--help" then do
+      printHelp
+      exitSuccess
+    else do
+      putStrLn "\ESC[1;31m2 args is required:\n\trun: ./ft_turing --help\ESC[0m"
+      exitFailure
+  | otherwise = do
+    putStrLn "\ESC[1;31m2 args is required:\n\trun: ./ft_turing --help\ESC[0m"
+    exitFailure
 
 main :: IO ()
 main = do
   args <- getArgs
-  if length args < 2 then do
-    putStrLn "2 args is required"
-    exitSuccess
-  else
-    putStrLn ""
+  let args_len = length args
+  argsParse args_len args
 
   let max_print_size = 10
   let name_file = head args
@@ -152,7 +172,7 @@ main = do
   putStrLn $ "FileName : " ++ name_file
   putStrLn $ "Input_str : " ++ input_str ++ "\n"
 
-  let blank = '.'
+  let blank = '—'
 
   let turing_machine = TuringMachine {
     print_size = len_print,
@@ -163,9 +183,9 @@ main = do
     finals_state = ["HALT", "STOP"],
     transitions = [
       Transition "impaire" '0' "paire" '0' "RIGHT",
-      Transition "impaire" '.' "HALT" 'y' "RIGHT",
+      Transition "impaire" '—' "HALT" 'y' "RIGHT",
       Transition "paire" '0' "impaire" '0' "RIGHT",
-      Transition "paire" '.' "HALT" 'n' "RIGHT"]
+      Transition "paire" '—' "HALT" 'n' "RIGHT"]
   }
 
   putStrLn "Initial Turing Machine :"
@@ -174,12 +194,3 @@ main = do
   putStrLn "Running Turing Machine :"
 
   runTuringMachine tape turing_machine (init_state turing_machine)
-  -- printInfiniteTape tape' len_input
-
-  -- let tape1 = mvRightSearch tape '='
-  -- printInfiniteTape tape1 len_input
-
-  -- let tape2 = mvAction tape1 "RIGHT"
-  -- printInfiniteTape tape2 len_input
-
-
