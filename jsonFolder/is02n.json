@@ -1,6 +1,6 @@
 {
     "name" : "O2n",
-    "alphabet" : [ "0", "." ],
+    "alphabet" : [ "0", ".", "y", "n" ],
     "blank" : ".",
     "states" : [ "impaire", "paire", "HALT" ],
     "initial" : "impaire",
