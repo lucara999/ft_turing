@@ -6,153 +6,163 @@
 --   By: laraujo <laraujo@student.42.fr>            +#+  +:+       +#+        --
 --                                                +#+#+#+#+#+   +#+           --
 --   Created: 2024/03/07 18:26:08 by laraujo           #+#    #+#             --
---   Updated: 2024/03/12 16:21:14 by laraujo          ###   ########.fr       --
+--   Updated: 2024/03/15 18:27:20 by laraujo          ###   ########.fr       --
 --                                                                            --
 -- ************************************************************************** --
 
 module Main where
 import System.Environment (getArgs)
 import System.Exit
--- import qualified MyLib (someFunc)
-import JSONparsing(parseTuring, TuringMachine, Transition)
+import JSONparsing(parseTuring, TuringMachine(..), Transition(..))
+import Data.Map
 
 data InfiniteTape = InfiniteTape {
-  left :: [Char],   -- LazyList
+  left :: [Char],
   cursor :: Char,
-  right :: [Char]   -- LazyList
+  right :: [Char]
 }
 
---data TuringMachine = TuringMachine {
---  print_size :: Int,
---  len_input :: Int,
---  states :: [String],
---  alphabet :: [Char],
---  init_state :: String,
---  finals_state :: [String],
---  transitions :: Transitions
---}
+data TuringMachineLight = TuringMachineLight {
+  print_size :: Int,
+  len_input :: Int,
+  init_state :: String,
+  finals_state :: [String],
+  transitions_list :: [TransitionUple]
+}
 
---type Action = String
+data TransitionUple = TransitionUple {
+  state_key :: String,
+  read_cur :: Char,
+  to_state :: String,
+  write_cur :: Char,
+  action :: String
+}
 
---data Transition = Transition {
---  state_key :: String,
---  read_cur :: Char,
---  to_state :: String,
---  write_cur :: Char,
---  action :: Action
---}
+convertMapToList :: Map String [Transition] -> [TransitionUple]
+convertMapToList transitionsMap = concatMap expandTransition (Data.Map.toList transitionsMap)
+  where
+    expandTransition :: (String, [Transition]) -> [TransitionUple]
+    expandTransition (state, transitions) = Prelude.map (toTransitionUple state) transitions
 
---type Transitions = [Transition]
+    toTransitionUple :: String -> Transition -> TransitionUple
+    toTransitionUple stateKey transition = TransitionUple
+      { state_key = stateKey
+      , read_cur = (head (JSONparsing.read transition))
+      , Main.to_state = JSONparsing.to_state transition
+      , write_cur = (head (JSONparsing.write transition))
+      , Main.action = JSONparsing.action transition
+      }
 
---initInfiniteTape :: [Char] -> Char -> InfiniteTape
---initInfiniteTape input_str blank = InfiniteTape {
---  left = repeat blank,
---  cursor = head input_str,
---  right = tail input_str ++ repeat blank
---}
+initInfiniteTape :: [Char] -> Char -> InfiniteTape
+initInfiniteTape input_str blank = InfiniteTape {
+ left = repeat blank,
+ cursor = head input_str,
+ right = tail input_str ++ repeat blank
+}
 
---printInfiniteTape :: InfiniteTape -> Int -> IO ()
---printInfiniteTape tape size = do
---  let resetColor = "\ESC[0m"
---  let bold = "\ESC[1m"
---  let rev = "\ESC[7m"
---  let grey_back = "\ESC[100m"
---  let tab = "\t"
+printInfiniteTape :: InfiniteTape -> Int -> IO ()
+printInfiniteTape tape size = do
+ let resetColor = "\ESC[0m"
+ let bold = "\ESC[1m"
+ let rev = "\ESC[7m"
+ let grey_back = "\ESC[100m"
+ let tab = "\t"
 
---  putStr $ tab ++ grey_back ++ reverse (take (size + 2) (left tape))
---  putStr $ bold ++ rev ++ [cursor tape] ++ resetColor ++ grey_back
---  putStrLn $ take (size * 2) (right tape) ++ resetColor
+ putStr $ tab ++ grey_back ++ reverse (Prelude.take (size + 2) (left tape))
+ putStr $ bold ++ rev ++ [cursor tape] ++ resetColor ++ grey_back
+ putStrLn $ Prelude.take (size * 2) (right tape) ++ resetColor
 
---printStepTuring :: String -> InfiniteTape -> Int -> String -> IO ()
---printStepTuring prefix tape size detail = do
---  let resetColor = "\ESC[0m"
---  let bold = "\ESC[1m"
---  let rev = "\ESC[7m"
---  let grey_back = "\ESC[100m"
+printStepTuring :: String -> InfiniteTape -> Int -> String -> IO ()
+printStepTuring prefix tape size detail = do
+ let resetColor = "\ESC[0m"
+ let bold = "\ESC[1m"
+ let rev = "\ESC[7m"
+ let grey_back = "\ESC[100m"
 
---  putStr $ prefix ++ grey_back ++ reverse (take (size + 2) (left tape))
---  putStr $ bold ++ rev ++ [cursor tape] ++ resetColor ++ grey_back
---  putStrLn $ take (size * 2) (right tape) ++ resetColor ++ "\t" ++ detail
+ putStr $ prefix ++ grey_back ++ reverse (Prelude.take (size + 2) (left tape))
+ putStr $ bold ++ rev ++ [cursor tape] ++ resetColor ++ grey_back
+ putStrLn $ Prelude.take (size * 2) (right tape) ++ resetColor ++ "\t" ++ detail
 
---printErrorTransition :: Transition -> IO ()
---printErrorTransition transition_error = do
---  let resetColor = "\ESC[0m"
---  let red = "\ESC[1;31m"
+printErrorTransition :: TransitionUple -> IO ()
+printErrorTransition transition_error = do
+ let resetColor = "\ESC[0m"
+ let red = "\ESC[1;31m"
 
---  putStrLn $ "\t" ++ red ++ "The machine is blocked transition error:"
---  putStrLn $ "\t\t(" ++ state_key transition_error ++ ", " ++ [read_cur transition_error] ++ ") -> (" ++ action transition_error ++ ")" ++ resetColor
+ putStrLn $ "\t" ++ red ++ "The machine is blocked transition error:"
+ putStrLn $ "\t\t(" ++ state_key transition_error ++ ", " ++ [read_cur transition_error] ++ ") -> (" ++ Main.action transition_error ++ ")" ++ resetColor
 
---writeCursor :: InfiniteTape -> Char -> InfiniteTape
---writeCursor (InfiniteTape left' _ right') symbole = InfiniteTape left' symbole right'
 
---mvCursorLeft :: InfiniteTape -> InfiniteTape
---mvCursorLeft (InfiniteTape [] cursor' right') = InfiniteTape [] cursor' right'
---mvCursorLeft (InfiniteTape (l:left') cursor' right') = InfiniteTape left' l (cursor':right')
+writeCursor :: InfiniteTape -> Char -> InfiniteTape
+writeCursor (InfiniteTape left' _ right') symbole = InfiniteTape left' symbole right'
 
---mvCursorRight :: InfiniteTape -> InfiniteTape
---mvCursorRight (InfiniteTape left' cursor' []) = InfiniteTape left' cursor' []
---mvCursorRight (InfiniteTape left' cursor' (r:right')) = InfiniteTape (cursor':left') r right'
+mvCursorLeft :: InfiniteTape -> InfiniteTape
+mvCursorLeft (InfiniteTape [] cursor' right') = InfiniteTape [] cursor' right'
+mvCursorLeft (InfiniteTape (l:left') cursor' right') = InfiniteTape left' l (cursor':right')
 
---mvAction :: InfiniteTape -> Action -> InfiniteTape
---mvAction tape actionStr
---  | actionStr == "LEFT" = mvCursorLeft tape
---  | actionStr == "RIGHT" = mvCursorRight tape
---  | otherwise = tape
+mvCursorRight :: InfiniteTape -> InfiniteTape
+mvCursorRight (InfiniteTape left' cursor' []) = InfiniteTape left' cursor' []
+mvCursorRight (InfiniteTape left' cursor' (r:right')) = InfiniteTape (cursor':left') r right'
 
---mvRightSearch :: InfiniteTape -> Char -> InfiniteTape
---mvRightSearch tape search
---  | cursor tape == search = tape
---  | otherwise = mvRightSearch (mvCursorRight tape) search
+mvAction :: InfiniteTape -> String -> InfiniteTape
+mvAction tape actionStr
+ | actionStr == "LEFT" = mvCursorLeft tape
+ | actionStr == "RIGHT" = mvCursorRight tape
+ | otherwise = tape
 
---findTransition :: Char -> String -> [Transition] -> String -> Transition
---findTransition cursor' state' transitions' final_state =
---  case [x | x <- transitions', state_key x == state', read_cur x == cursor'] of
---    [] -> Transition state' cursor' final_state cursor' ""
---    (x:_) -> x
+mvRightSearch :: InfiniteTape -> Char -> InfiniteTape
+mvRightSearch tape search
+ | cursor tape == search = tape
+ | otherwise = mvRightSearch (mvCursorRight tape) search
 
---runTuringMachine :: InfiniteTape -> TuringMachine -> String -> IO () --(InfiniteTape, TuringMachine)
---runTuringMachine tape turing_machine actual_state
---  | actual_state `elem` finals_state turing_machine = do
---    putStrLn "Final State reached :"
---    printInfiniteTape tape (len_input turing_machine)
---  | otherwise = do
---    let transition = findTransition (cursor tape) actual_state (transitions turing_machine) (head (finals_state turing_machine))
---    let tape' = writeCursor tape (write_cur transition)
---    let tape'' = mvAction tape' (action transition)
+findTransition :: Char -> String -> [TransitionUple] -> String -> TransitionUple
+findTransition cursor' state' transitions' final_state =
+ case [x | x <- transitions', state_key x == state', read_cur x == cursor'] of
+   [] -> TransitionUple state' cursor' final_state cursor' ""
+   (x:_) -> x
 
---    if action transition `elem` ["LEFT", "RIGHT"] then do
---      let str = "(" ++ state_key transition ++ ", " ++ [read_cur transition] ++ ") \t\t‾‾|"
---      let str' = "(" ++ to_state transition ++ ", " ++ [write_cur transition] ++ ", " ++ action transition ++ ") \t__|"
---      printStepTuring "|‾‾\t" tape (print_size turing_machine) str
---      printStepTuring "|__\t" tape' (print_size turing_machine) str'
+runTuringMachine :: InfiniteTape -> TuringMachineLight -> String -> IO () --(InfiniteTape, TuringMachine)
+runTuringMachine tape turing_machine actual_state
+ | actual_state `elem` finals_state turing_machine = do
+   putStrLn "Final State reached :"
+   printInfiniteTape tape (len_input turing_machine)
+ | otherwise = do
+   let transition = findTransition (cursor tape) actual_state (transitions_list turing_machine) (head (finals_state turing_machine))
+   let tape' = writeCursor tape (write_cur transition)
+   let tape'' = mvAction tape' (Main.action transition)
 
---      runTuringMachine tape'' turing_machine (to_state transition)
---    else do
---      printStepTuring "\ESC[41m——>\t" tape (print_size turing_machine) "\ESC[41m\t\t\t<——\ESC[0m"
---      printErrorTransition transition
+   if Main.action transition `elem` ["LEFT", "RIGHT"] then do
+     let str = "(" ++ state_key transition ++ ", " ++ [read_cur transition] ++ ") \t\t‾‾|"
+     let str' = "(" ++ Main.to_state transition ++ ", " ++ [write_cur transition] ++ ", " ++ Main.action transition ++ ") \t__|"
+     printStepTuring "|‾‾\t" tape (print_size turing_machine) str
+     printStepTuring "|__\t" tape' (print_size turing_machine) str'
 
---printHelp :: IO ()
---printHelp = do
---  putStrLn $ "usage: ft_turing \ESC[30;3m{-h/--help}\ESC[0m jsonfile input\n"
---  putStrLn $ "positional arguments:"
---  putStrLn $ "\tjsonfile\t json description of the machine\n"
---  putStrLn $ "\tinput\t\t input of the machine\n"
---  putStrLn $ "\ESC[30;3moptional arguments:"
---  putStrLn $ "\t-h, --help\t  show this help message and exit\ESC[0m"
+     runTuringMachine tape'' turing_machine (Main.to_state transition)
+   else do
+     printStepTuring "\ESC[41m——>\t" tape (print_size turing_machine) "\ESC[41m\t\t\t<——\ESC[0m"
+     printErrorTransition transition
 
---argsParse :: Int -> [String] -> IO ()
---argsParse args_len' args'
---  | args_len' == 2 = putStr ""
---  | args_len' == 1 = do
---    if args' !! 0 == "-h" || args' !! 0 == "--help" then do
---      printHelp
---      exitSuccess
---    else do
---      putStrLn "\ESC[1;31m2 args is required:\n\trun: ./ft_turing --help\ESC[0m"
---      exitFailure
---  | otherwise = do
---    putStrLn "\ESC[1;31m2 args is required:\n\trun: ./ft_turing --help\ESC[0m"
---    exitFailure
+printHelp :: IO ()
+printHelp = do
+ putStrLn $ "usage: ft_turing \ESC[30;3m{-h/--help}\ESC[0m jsonfile input\n"
+ putStrLn $ "positional arguments:"
+ putStrLn $ "\tjsonfile\t json description of the machine\n"
+ putStrLn $ "\tinput\t\t input of the machine\n"
+ putStrLn $ "\ESC[30;3moptional arguments:"
+ putStrLn $ "\t-h, --help\t  show this help message and exit\ESC[0m"
+
+argsParse :: Int -> [String] -> IO ()
+argsParse args_len' args'
+ | args_len' == 2 = putStr ""
+ | args_len' == 1 = do
+   if args' !! 0 == "-h" || args' !! 0 == "--help" then do
+     printHelp
+     exitSuccess
+   else do
+     putStrLn "\ESC[1;31m2 args is required:\n\trun: ./ft_turing --help\ESC[0m"
+     exitFailure
+ | otherwise = do
+   putStrLn "\ESC[1;31m2 args is required:\n\trun: ./ft_turing --help\ESC[0m"
+   exitFailure
 
 main :: IO ()
 main = do
@@ -173,32 +183,26 @@ main = do
   putStrLn $ "FileName : " ++ name_file
   putStrLn $ "Input_str : " ++ input_str ++ "\n"
 
-  let blank = '—'
-
   turing_machine <- parseTuring input_str name_file
   case (turing_machine) of
     Nothing -> do
-      putStrLn "exit"
+      putStrLn "EXIT"
+      exitFailure
     Just tm -> do
       putStrLn (show tm)
-      
---  let turing_machine = TuringMachine {
---    print_size = len_print,
---    len_input = length input_str,
---    states = ["impaire", "paire", "HALT", "STOP"],
---    alphabet = ['0', '.'],
---    init_state = "impaire",
---    finals_state = ["HALT", "STOP"],
---    transitions = [
---      Transition "impaire" '0' "paire" '0' "RIGHT",
---      Transition "impaire" '—' "HALT" 'y' "RIGHT",
---      Transition "paire" '0' "impaire" '0' "RIGHT",
---      Transition "paire" '—' "HALT" 'n' "RIGHT"]
---  }
+      -- putStrLn (name tm)
 
---  putStrLn "Initial Turing Machine :"
---  let tape = initInfiniteTape input_str blank
---  printInfiniteTape tape (length input_str)
---  putStrLn "Running Turing Machine :"
+      let turing_machine = TuringMachineLight {
+        print_size = len_print,
+        len_input = length input_str,
+        init_state = initial tm,
+        finals_state = finals tm,
+        transitions_list = convertMapToList (transitions tm)
+      }
 
---  runTuringMachine tape turing_machine (init_state turing_machine)
+      putStrLn "Initial Turing Machine :"
+      let tape = initInfiniteTape input_str ((blank tm) !! 0)
+      printInfiniteTape tape (length input_str)
+      putStrLn "Running Turing Machine :"
+
+      runTuringMachine tape turing_machine (init_state turing_machine)

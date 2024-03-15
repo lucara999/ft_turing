@@ -1,18 +1,18 @@
 -- ************************************************************************** --
---                                                          LE - /            --
---                                                              /             --
---   JSONparsing.hs                                   .::    .:/ .      .::   --
---                                                 +:+:+   +:    +:  +:+:+    --
---   By: mrozniec <mrozniec@student.42lyon.fr>      +:+   +:    +:    +:+     --
---                                                 #+#   #+    #+    #+#      --
---   Created: 2024/03/08 15:03:08 by mrozniec     #+#   ##    ##    #+#       --
---   Updated: 2024/03/13 17:50:28 by mrozniec    ###    #+. /#+    ###.fr     --
---                                                         /                  --
---                                                        /                   --
+--                                                                            --
+--                                                        :::      ::::::::   --
+--   JSONparsing.hs                                     :+:      :+:    :+:   --
+--                                                    +:+ +:+         +:+     --
+--   By: laraujo <laraujo@student.42.fr>            +#+  +:+       +#+        --
+--                                                +#+#+#+#+#+   +#+           --
+--   Created: 2024/03/08 15:03:08 by mrozniec          #+#    #+#             --
+--   Updated: 2024/03/15 18:11:12 by laraujo          ###   ########.fr       --
+--                                                                            --
 -- ************************************************************************** --
+
 {-# LANGUAGE DeriveGeneric #-}
 
-module JSONparsing (parseTuring, TuringMachine, Transition) where
+module JSONparsing (parseTuring, TuringMachine(..), Transition(..)) where
 
 import Data.Aeson(FromJSON, decode)
 import Data.Map
